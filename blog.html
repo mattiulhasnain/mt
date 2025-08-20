@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+                <title>BLOG - MUHIUM AI Software Solutions</title>
+	<meta charset="utf-8">
+	<meta name="author" content="MUHIUM AI Software Solutions">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="description" content="Latest insights, tutorials, and updates from MUHIUM AI Software Solutions">
+	<meta name="keywords" content="AI blog, software development, technology insights, tutorials, innovation">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS ================================================== -->
+    <link rel="stylesheet" href="css/combined.min.css?innove" type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/default.css?innove" type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Lato:400,700,300,100" type='text/css'>
+    
+    <!-- Custom Blog Styles -->
+    <style>
+        .blog-card {
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+        
+        .blog-content {
+            padding: 25px;
+        }
+        
+        .blog-meta {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .blog-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .blog-title a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .blog-title a:hover {
+            color: #6d6dff;
+        }
+        
+        .blog-excerpt {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .blog-tags {
+            margin-bottom: 15px;
+        }
+        
+        .tag {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-right: 8px;
+            margin-bottom: 5px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .read-more {
+            color: #6d6dff;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .read-more:hover {
+            color: #5a5ad4;
+            text-decoration: none;
+        }
+        
+        .sidebar {
+            background: #f8f9fa;
+            padding: 30px 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar h4 {
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .sidebar li {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .sidebar li:last-child {
+            border-bottom: none;
+        }
+        
+        .sidebar a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .sidebar a:hover {
+            color: #6d6dff;
+        }
+        
+        .featured-post {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .featured-post h2 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .featured-post p {
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .btn-featured {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-featured:hover {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+
+	<!-- Favicons ================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+<div id="fb-root"></div>
+
+    <!-- Header -->
+    <header class="blockHeader wb-header logo_left" fixed="false">
+        <div class="container boxWidget">
+            <div class="logoWidget logo logoTextSettingClass">
+                <a href="index.html" title="">
+                    <span id="logoTextWrap" style="display:block;">
+                        <span class="websiteLogoName" style="color:#000000;font-family:Pacifico;font-size:25px">MUHIUM AI Software Solutions</span>
+                        <span class="websiteLogoSlogan" style="color:#fff;font-family:Roboto;font-size:10px"></span>
+                    </span>
+                </a>
+            </div>
+            
+            <div class="navbar navbar-default navbar-static-top">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                
+                <div class="navWidget navbar-collapse collapse">
+                    <ul class="parent-nav-ul nav navbar-nav navbar-right">
+                        <li><a href="index.html" class="siteNavLink">HOME</a></li>
+                        <li><a href="about.html" class="siteNavLink">ABOUT</a></li>
+                        <li><a href="services.html" class="siteNavLink">SERVICES</a></li>
+                        <li><a href="projects.html" class="siteNavLink">PROJECTS</a></li>
+                        <li><a href="gallery.html" class="siteNavLink">GALLERY</a></li>
+                        <li class="active"><a href="blog.html" class="siteNavLink">BLOG</a></li>
+                        <li><a href="contact.html" class="siteNavLink">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div id="blog" class="page wb-page">
+        
+        <!-- Hero Section -->
+        <section class="breadcrumb-section dark sec-padding-lg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <div class="container boxWidget">
+                <div class="col-lg-12">
+                    <div class="title-heading text-center">
+                        <h1>Our Blog</h1>
+                        <p style="font-size: 18px; margin-top: 20px;">Insights, tutorials, and latest updates from the world of AI and software development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Content -->
+        <section style="padding: 60px 0;">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Content -->
+                    <div class="col-lg-8 col-md-8">
+                        
+                        <!-- Featured Post -->
+                        <div class="featured-post">
+                            <h2>The Future of AI in Web Development</h2>
+                            <p class="blog-meta" style="opacity: 0.8;">January 15, 2025 • Featured Article</p>
+                            <p>Explore how artificial intelligence is revolutionizing web development, from automated code generation to intelligent user experience optimization. Discover the tools and techniques that are shaping the future of digital innovation.</p>
+                            <a href="#" class="btn-featured">Read Full Article</a>
+                        </div>
+                        
+                        <!-- Blog Posts -->
+                        <div class="row">
+                            
+                            <!-- Blog Post 1 -->
+                            <div class="col-lg-6">
+                                <div class="blog-card">
+                                    <div class="blog-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                        <i class="fa fa-code"></i>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <i class="fa fa-calendar"></i> January 12, 2025
+                                            <span style="margin-left: 15px;"><i class="fa fa-user"></i> Admin</span>
+                                        </div>
+                                        <h3 class="blog-title">
+                                            <a href="#">Building Scalable Web Applications with Modern Frameworks</a>
+                                        </h3>
+                                        <p class="blog-excerpt">
+                                            Learn the best practices for creating scalable web applications using React, Vue.js, and Angular. Discover performance optimization techniques and architectural patterns.
+                                        </p>
+                                        <div class="blog-tags">
+                                            <span class="tag">Web Development</span>
+                                            <span class="tag">React</span>
+                                            <span class="tag">Performance</span>
+                                        </div>
+                                        <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Blog Post 2 -->
+                            <div class="col-lg-6">
+                                <div class="blog-card">
+                                    <div class="blog-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                        <i class="fa fa-robot"></i>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <i class="fa fa-calendar"></i> January 10, 2025
+                                            <span style="margin-left: 15px;"><i class="fa fa-user"></i> Admin</span>
+                                        </div>
+                                        <h3 class="blog-title">
+                                            <a href="#">Implementing AI-Powered Chatbots for Customer Service</a>
+                                        </h3>
+                                        <p class="blog-excerpt">
+                                            Step-by-step guide to building intelligent chatbots using natural language processing and machine learning for enhanced customer experience.
+                                        </p>
+                                        <div class="blog-tags">
+                                            <span class="tag">AI</span>
+                                            <span class="tag">Chatbots</span>
+                                            <span class="tag">NLP</span>
+                                        </div>
+                                        <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Blog Post 3 -->
+                            <div class="col-lg-6">
+                                <div class="blog-card">
+                                    <div class="blog-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                                        <i class="fa fa-cube"></i>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <i class="fa fa-calendar"></i> January 8, 2025
+                                            <span style="margin-left: 15px;"><i class="fa fa-user"></i> Admin</span>
+                                        </div>
+                                        <h3 class="blog-title">
+                                            <a href="#">Advanced 3D Animation Techniques for Web</a>
+                                        </h3>
+                                        <p class="blog-excerpt">
+                                            Master the art of creating stunning 3D animations for web applications using Three.js, WebGL, and modern animation libraries.
+                                        </p>
+                                        <div class="blog-tags">
+                                            <span class="tag">3D Animation</span>
+                                            <span class="tag">Three.js</span>
+                                            <span class="tag">WebGL</span>
+                                        </div>
+                                        <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Blog Post 4 -->
+                            <div class="col-lg-6">
+                                <div class="blog-card">
+                                    <div class="blog-image" style="background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);">
+                                        <i class="fa fa-cogs"></i>
+                                    </div>
+                                    <div class="blog-content">
+                                        <div class="blog-meta">
+                                            <i class="fa fa-calendar"></i> January 5, 2025
+                                            <span style="margin-left: 15px;"><i class="fa fa-user"></i> Admin</span>
+                                        </div>
+                                        <h3 class="blog-title">
+                                            <a href="#">Automating Business Processes with AI</a>
+                                        </h3>
+                                        <p class="blog-excerpt">
+                                            Discover how to streamline your business operations using AI-powered automation tools and custom software solutions.
+                                        </p>
+                                        <div class="blog-tags">
+                                            <span class="tag">Automation</span>
+                                            <span class="tag">Business</span>
+                                            <span class="tag">AI</span>
+                                        </div>
+                                        <a href="#" class="read-more">Read More <i class="fa fa-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="text-center" style="margin-top: 40px;">
+                            <nav>
+                                <ul class="pagination">
+                                    <li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        
+                    </div>
+                    
+                    <!-- Sidebar -->
+                    <div class="col-lg-4 col-md-4">
+                        
+                        <!-- Search -->
+                        <div class="sidebar">
+                            <h4><i class="fa fa-search"></i> Search</h4>
+                            <form>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search articles...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-primary" type="button" style="background: #6d6dff; border: none;">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </span>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Recent Posts -->
+                        <div class="sidebar">
+                            <h4><i class="fa fa-clock-o"></i> Recent Posts</h4>
+                            <ul>
+                                <li><a href="#">The Future of AI in Web Development</a></li>
+                                <li><a href="#">Building Scalable Web Applications</a></li>
+                                <li><a href="#">AI-Powered Chatbots Implementation</a></li>
+                                <li><a href="#">Advanced 3D Animation Techniques</a></li>
+                                <li><a href="#">Business Process Automation</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Categories -->
+                        <div class="sidebar">
+                            <h4><i class="fa fa-folder"></i> Categories</h4>
+                            <ul>
+                                <li><a href="#">Web Development <span class="badge pull-right">8</span></a></li>
+                                <li><a href="#">Artificial Intelligence <span class="badge pull-right">12</span></a></li>
+                                <li><a href="#">3D Animation <span class="badge pull-right">6</span></a></li>
+                                <li><a href="#">Automation <span class="badge pull-right">9</span></a></li>
+                                <li><a href="#">Tutorials <span class="badge pull-right">15</span></a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Tags -->
+                        <div class="sidebar">
+                            <h4><i class="fa fa-tags"></i> Popular Tags</h4>
+                            <div style="line-height: 2;">
+                                <span class="tag">AI</span>
+                                <span class="tag">React</span>
+                                <span class="tag">Node.js</span>
+                                <span class="tag">Python</span>
+                                <span class="tag">Machine Learning</span>
+                                <span class="tag">3D</span>
+                                <span class="tag">WebGL</span>
+                                <span class="tag">Automation</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">TensorFlow</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="blockFooter wb-footer">
+        <div class="container boxWidget">
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="richTextWidget">
+                        <h5>Company Overview</h5>
+                        <p>With a commitment to excellence and customer satisfaction, we strive to deliver premium quality and innovative solutions tailored to meet your needs.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="richTextWidget">
+                        <h5>Contact</h5>
+                        <ul>
+                            <li><i class="fa fa-github"></i> <a href="#">github.com/mattiulhasnain</a></li>
+                            <li><i class="fa fa-phone"></i> <a href="#">+923434455432</a></li>
+                            <li><i class="fa fa-envelope"></i> <a href="#">m.mattiulhasnain@gmail.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="richTextWidget">
+                        <h5>Services</h5>
+                        <ul>
+                            <li><a href="services.html">3D Animation</a></li>
+                            <li><a href="services.html">Automation Solutions</a></li>
+                            <li><a href="services.html">AI Integration</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container boxWidget">
+            <div class="footer-copyright">
+                <div class="row">
+                    <div class="richTextWidget col-lg-8 col-md-8 col-sm-12">
+                        <p>Copyright 2025 All Rights Reserved. Made by <span style="color:#6d6dff;font-weight:800;">github.com/mattiulhasnain</span></p>
+                    </div>
+                    
+                    <div class="socialIconsWidget col-lg-4 col-md-4 col-sm-12">
+                        <ul>
+                            <li><a href="https://www.facebook.com/photo/?fbid=122114333390661954&set=a.122102211530661954" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.instagram.com/m.mattiulhasnain/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+</body>
+</html>

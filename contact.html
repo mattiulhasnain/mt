@@ -115,8 +115,22 @@
                                                           
           
                                                 <li class="dropdown">
+                        <a href="projects.html" pageslug="projects" linktype="Page" class="siteNavLink">
+                            PROJECTS
+                                                    </a>
+                                            </li>
+                                                          
+          
+                                                <li class="dropdown">
                         <a href="gallery.html" pageslug="gallery" linktype="Page" class="siteNavLink">
                             GALLERY
+                                                    </a>
+                                            </li>
+                                                          
+          
+                                                <li class="dropdown">
+                        <a href="blog.html" pageslug="blog" linktype="Page" class="siteNavLink">
+                            BLOG
                                                     </a>
                                             </li>
                                                           
@@ -172,13 +186,17 @@
 
 
     
-        <form method="post" action="https://system.sitemantic.com/email/sendemail.php">
+    
+        <form method="post" action="contact-handler.php" id="contactForm">
             <div class="alert alert-success" style="display: none;" id="email_sent">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>Success!</strong> Your email has been sent successfully.
             </div>
+            <div class="alert alert-danger" style="display: none;" id="email_error">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Error!</strong> <span id="error_message">There was an error sending your message.</span>
+            </div>
             <div class="input">
-
                 <label id="labelforname" class="">Your name:</label>
                 <input type="text" name="name" required placeholder="&#61447; Your name"></div>
             <div class="input">
@@ -186,15 +204,12 @@
                 <input type="email" name="email" required placeholder="&#61664; Your email "></div>
             <label id="labelformessage" class="">Message:</label>
             <textarea rows="6" name="message" required placeholder="&#61504; Message"></textarea><div></div>
-                            <div class="row captchaCode">
-                    <label id="labelforcaptcha" style=" float: left;  margin-left: 15px; margin-right: 10px; line-height: 38px;" class="">Enter the code above here :</label>
-                    <img id="captchaimg" style="float: left; display: block;" src="//email.sitemantic.com/captcha.php?rand="><input style="margin-left: 5px; border: 1px solid #000; width: 150px; float:left;" type="text" name="captcha_code" required><span style="color:#d00;margin-left: 8px; line-height: 39px;font-weight: bold; height: 40px;display: none;">Invalid Security Code</span>
-                                    </div>
-
-                                                                                                        <button id="textforsubmitbtn" type="button" class="button theme-button" value="Submit">Submit
+                            
+            <button id="textforsubmitbtn" type="submit" class="button theme-button">
+                <span id="submit-text">Submit</span>
+                <span id="loading-text" style="display: none;">Sending...</span>
             </button>
-
-            <input type="hidden" name="website_source" value="innove.ai"></form>
+            </form>
 
     
 
@@ -334,6 +349,69 @@ var imageBg = null;
 
 $('.dropdown').find('a').each(function() {
     $(this).attr('href',$(this).attr('href')+"?innove");
+});
+
+// Contact form handler
+$(document).ready(function() {
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        var $form = $(this);
+        var $submitBtn = $('#textforsubmitbtn');
+        var $submitText = $('#submit-text');
+        var $loadingText = $('#loading-text');
+        var $successAlert = $('#email_sent');
+        var $errorAlert = $('#email_error');
+        var $errorMessage = $('#error_message');
+        
+        // Reset alerts
+        $successAlert.hide();
+        $errorAlert.hide();
+        
+        // Show loading state
+        $submitText.hide();
+        $loadingText.show();
+        $submitBtn.prop('disabled', true);
+        
+        // Get form data
+        var formData = new FormData(this);
+        
+        // Submit form via AJAX
+        $.ajax({
+            url: 'contact-handler.php',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                var result = typeof response === 'string' ? JSON.parse(response) : response;
+                
+                if (result.status === 'success') {
+                    $successAlert.show();
+                    $form[0].reset(); // Reset form
+                } else {
+                    $errorMessage.text(result.message || 'There was an error sending your message.');
+                    $errorAlert.show();
+                }
+            },
+            error: function(xhr, status, error) {
+                var errorText = 'There was an error sending your message. Please try again later.';
+                
+                if (xhr.responseJSON && xhr.responseJSON.message) {
+                    errorText = xhr.responseJSON.message;
+                }
+                
+                $errorMessage.text(errorText);
+                $errorAlert.show();
+            },
+            complete: function() {
+                // Reset button state
+                $submitText.show();
+                $loadingText.hide();
+                $submitBtn.prop('disabled', false);
+            }
+        });
+    });
 });
 </script>
 
